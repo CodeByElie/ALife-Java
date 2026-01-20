@@ -12,10 +12,20 @@ public class Conway extends ALife {
         this.height = height;
     }
 
-    public void init() {
-        grid = new Grid(width, height,true);
+    public void init() {this.init(true);}
+    public void init(boolean random) {
+        grid = new Grid(width, height,random);
         addComponent(grid);
     }
+    public void createGlider() {
+        grid.getCell(0,1).live();
+        grid.getCell(1,2).live();
+        grid.getCell(2,2).live();
+        grid.getCell(2,1).live();
+        grid.getCell(2,0).live();
+        grid.getCell(2,1).live();
+    }
+
 
     public void update() {
         boolean[][] willBeAlive = new boolean[height][width];
