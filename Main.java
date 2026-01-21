@@ -1,7 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Conway c = new Conway(100,100);
+        Lenia c = new Lenia(150,150);
         c.init();
+        c.addConvolutionFilter();
         c.draw();
         while(true) {
             c.update();

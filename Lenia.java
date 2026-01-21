@@ -42,8 +42,24 @@ public class Lenia extends ALife{
     }
 
     public void update() {
+        double dt = 0.1;
+        double[][] newColors = new double[height][width];
+        
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                newColors[y][x]=Math.max(grid.getCell(x, y).getColor()-0.005,0);
+            }
+        }
+        
 
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                grid.getCell(x, y).setColor(newColors[y][x]);
+            }
+        }
     }
+
+    
 
     public void setMu(double mu) {this.mu = mu;}
     public void setSigma(double sigma) {this.sigma = sigma;}
